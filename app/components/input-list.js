@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-multiselect-input/components/input-list';

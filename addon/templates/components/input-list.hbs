@@ -1,0 +1,31 @@
+{{#if objects.length}}
+  <ul class="col-sm-12">
+    {{#if selectAllEnabled}}
+      <li class="checkbox">
+        {{select-all-checkbox name=selectAllGroupName deselectAll="deselectAll" selectAll="selectAll" selected=selectedObjects objects=objects validObjects=validObjects}}
+      </li>
+    {{/if}}
+  </ul>
+
+  {{#if useCheckboxes}}
+    <div class="checkbox">
+      {{#each objects as |object|}}
+        <label class="{{columnClass}} pull-left">
+          {{#list-checkbox
+            value=object
+            classNames="group-single"
+            selected=selectedObjects
+            disableNonSelected=disableNonSelected
+            onChange="toggleObject"}}
+              {{object.name}}
+          {{/list-checkbox}}
+        </label>
+      {{/each}}
+    </div>
+  {{/if}}
+
+{{else}}
+  <p class="text-lg grey">
+    {{emptyText}}
+  </p>
+{{/if}}
